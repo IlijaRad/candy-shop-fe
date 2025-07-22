@@ -71,7 +71,7 @@ export default function PopularProducts() {
             <IconArrowNarrowRight size={16} />
           </Link>
         </div>
-        <div className="flex gap-x-[35px] pb-6 mt-9 overflow-x-auto">
+        <div className="flex gap-x-4 lg:gap-x-[35px] pb-6 mt-9 overflow-x-auto snap-x snap-mandatory scroll-smooth">
           {popularProducts.map((product) => (
             <Product product={product} key={product.id} />
           ))}
