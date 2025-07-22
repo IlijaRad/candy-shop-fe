@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./ui/header";
+import HeaderMobile from "./ui/header-mobile";
 import TopBar from "./ui/top-bar";
 
 const inter = Inter({
@@ -20,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <TopBar />
+        <header>
+          <TopBar />
+          <Header />
+          <HeaderMobile />
+        </header>
         {children}
       </body>
     </html>
