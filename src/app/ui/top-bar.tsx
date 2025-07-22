@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function TopBar() {
   return (
-    <div className="bg-gray-900 h-10 w-full">
-      <div className="lg:px-8 px-4 lg:grid grid-cols-4 h-full items-center">
+    <div className="bg-gray-900">
+      <div className="lg:px-8 px-4 h-10 lg:grid grid-cols-4 items-center">
         <div className="hidden lg:block grow" aria-hidden="true" />
         <div className="text-white hidden lg:block col-span-2 font-medium justify-self-center text-sm">
           Besplatna dostava za porudžbine preko 5000RSD
