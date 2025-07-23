@@ -1,5 +1,8 @@
+"use client";
+
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import Product from "./product";
 
 type Product = {
@@ -55,11 +58,59 @@ const popularProducts: Product[] = [
   },
 ];
 
+const DRAG_THRESHOLD = 10;
+
 export default function PopularProducts() {
+  const [dragging, setDragging] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [dragged, setDragged] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+  }, []);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setDragging(true);
+    setStartX(e.pageX - carouselRef.current!.offsetLeft);
+    setScrollLeft(carouselRef.current!.scrollLeft);
+    setDragged(false);
+    e.preventDefault();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragging) return;
+    const x = e.pageX - carouselRef.current!.offsetLeft;
+    const move = (x - startX) * 2;
+    carouselRef.current!.scrollLeft = scrollLeft - move;
+    if (Math.abs(x - startX) > DRAG_THRESHOLD) {
+      setDragged(true);
+    }
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    setDragging(false);
+    if (!dragged) {
+      const link = e.target as HTMLElement;
+      if (link && link.closest("a")) {
+        link.closest("a")!.click();
+      }
+    }
+  };
+
+  const handleLinkClick = (e: React.MouseEvent) => {
+    if (dragged) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="bg-white">
       <div className="px-4 lg:px-8 lg:py-24 py-16">
-        <div className="flex justify-between items-center ">
+        <div className="flex justify-between items-center">
           <h2 className="text-gray-900 lg:text-[32px]/8 font-semibold text-2xl">
             Popularni proizvodi
           </h2>
@@ -71,11 +122,32 @@ export default function PopularProducts() {
             <IconArrowNarrowRight size={16} />
           </Link>
         </div>
-        <div className="flex gap-x-4 lg:gap-x-[35px] pb-6 mt-9 overflow-x-auto snap-x snap-mandatory scroll-smooth">
+
+        <div
+          ref={carouselRef}
+          className={`relative overflow-x-auto flex gap-x-4 mt-9 ${
+            !isTouchDevice ? "snap-none" : "snap-x snap-mandatory"
+          } ${
+            carouselRef.current &&
+            carouselRef.current.scrollWidth > carouselRef.current.clientWidth
+              ? dragging
+                ? "cursor-grabbing"
+                : "cursor-grab"
+              : ""
+          }`}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+        >
           {popularProducts.map((product) => (
-            <Product product={product} key={product.id} />
+            <Product
+              product={product}
+              key={product.id}
+              onClick={handleLinkClick}
+            />
           ))}
         </div>
+
         <Link
           href="/"
           className="text-rose-600 hover:text-rose-800 transition-colors flex lg:hidden mt-6 gap-x-0.5 items-center font-semibold text-sm"

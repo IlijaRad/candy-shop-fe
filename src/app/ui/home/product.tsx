@@ -9,7 +9,13 @@ type Product = {
   default_image_url: string;
 };
 
-export default function Product({ product }: { product: Product }) {
+export default function Product({
+  product,
+  onClick,
+}: {
+  product: Product;
+  onClick: (e: React.MouseEvent) => void;
+}) {
   return (
     <div className="shrink-0 snap-start">
       <div className="isolate relative">
@@ -21,7 +27,11 @@ export default function Product({ product }: { product: Product }) {
           className="rounded-md"
         />
         <div className="mt-2 text-gray-700">
-          <Link draggable="false" href={`/products/${product.slug}`}>
+          <Link
+            draggable="false"
+            href={`/products/${product.slug}`}
+            onClick={onClick}
+          >
             <span className="absolute inset-0 z-10"></span>
             {product.name}
           </Link>
