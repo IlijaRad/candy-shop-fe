@@ -11,16 +11,16 @@ export default function HeaderMobile() {
   return (
     <div className="bg-white lg:hidden">
       <div className="px-4">
-        <div className="grid grid-cols-3 border-b h-16 border-gray-200 items-center">
+        <div className="grid h-16 grid-cols-3 items-center border-b border-gray-200">
           <div className="flex gap-x-6">
             <button
-              className="cursor-pointer p-2 -m-2 text-gray-400"
+              className="-m-2 cursor-pointer p-2 text-gray-400"
               aria-label="Menu"
             >
               <IconMenu2 />
             </button>
             <button
-              className="cursor-pointer p-2 -m-2 text-gray-400"
+              className="-m-2 cursor-pointer p-2 text-gray-400"
               aria-label="Search"
             >
               <IconSearch />
@@ -29,16 +29,16 @@ export default function HeaderMobile() {
           <Link href="/" className="justify-self-center">
             <Image src="/logo.png" width={33} height={32} alt="CandySrb Logo" />
           </Link>
-          <div className="flex justify-self-end gap-x-4">
+          <div className="flex gap-x-4 justify-self-end">
             <button
-              className="cursor-pointer p-2 -m-2 text-gray-400"
+              className="-m-2 cursor-pointer p-2 text-gray-400"
               aria-label="User"
             >
               <IconUser />
             </button>
-            <div className="w-px h-6 bg-gray-200" aria-hidden />
+            <div className="h-6 w-px bg-gray-200" aria-hidden />
             <button
-              className="flex cursor-pointer p-2 -m-2 items-center gap-x-2 text-gray-400"
+              className="-m-2 flex cursor-pointer items-center gap-x-2 p-2 text-gray-400"
               aria-label="Cart"
             >
               <IconShoppingCart />
