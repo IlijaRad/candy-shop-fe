@@ -14,24 +14,20 @@ export default function Product({
   onClick,
 }: {
   product: Product;
-  onClick: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent) => void;
 }) {
   return (
     <div className="shrink-0 snap-start">
-      <div className="isolate relative">
+      <div className="relative isolate">
         <Image
           src={product.default_image_url}
           alt={product.name}
-          height={280}
           width={280}
+          height={280}
           className="rounded-md"
         />
         <div className="mt-2 text-gray-700">
-          <Link
-            draggable="false"
-            href={`/products/${product.slug}`}
-            onClick={onClick}
-          >
+          <Link href={`/products/${product.slug}`} onClick={onClick}>
             <span className="absolute inset-0 z-10"></span>
             {product.name}
           </Link>
