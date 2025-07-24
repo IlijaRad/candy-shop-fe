@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "./ui/footer";
 import Header from "./ui/header";
 import HeaderMobile from "./ui/header-mobile";
 import TopBar from "./ui/top-bar";
@@ -28,6 +29,7 @@ export default function RootLayout({
           <HeaderMobile />
         </header>
         {children}
+        <Footer />
       </body>
     </html>
   );
