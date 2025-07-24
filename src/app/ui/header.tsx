@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="bg-white hidden lg:block">
+    <div className="hidden bg-white lg:block">
       <div className="px-8">
-        <div className="flex border-b h-16 border-gray-200 items-center justify-between">
-          <div className="flex gap-x-4 items-center">
+        <div className="flex h-16 items-center justify-between border-b border-gray-200">
+          <div className="flex items-center gap-x-4">
             <Link href="/">
               <Image
                 src="/logo.png"
@@ -16,7 +16,7 @@ export default function Header() {
                 alt="CandySrb Logo"
               />
             </Link>
-            <nav className="font-medium flex gap-x-8 text-sm text-gray-700">
+            <nav className="flex gap-x-8 text-sm font-medium text-gray-700">
               <Link href="/">Sokovi</Link>
               <Link href="/">Energetska pića</Link>
               <Link href="/">Bombone</Link>
@@ -25,16 +25,16 @@ export default function Header() {
           </div>
           <div className="flex gap-x-6">
             <div className="flex gap-x-8 text-gray-400">
-              <button className="cursor-pointer p-2 -m-2" aria-label="Search">
+              <button className="-m-2 cursor-pointer p-2" aria-label="Search">
                 <IconSearch />
               </button>
-              <button className="cursor-pointer p-2 -m-2" aria-label="Account">
+              <button className="-m-2 cursor-pointer p-2" aria-label="Account">
                 <IconUser />
               </button>
             </div>
-            <div className="w-px h-6 bg-gray-200" aria-hidden />
+            <div className="h-6 w-px bg-gray-200" aria-hidden />
             <button
-              className="flex cursor-pointer p-2 -m-2 items-center gap-x-2 text-gray-400"
+              className="-m-2 flex cursor-pointer items-center gap-x-2 p-2 text-gray-400"
               aria-label="Cart"
             >
               <IconShoppingCart />
