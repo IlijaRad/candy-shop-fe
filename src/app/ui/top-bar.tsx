@@ -12,9 +12,9 @@ export default function TopBar() {
           Besplatna dostava za sve preko 5000RSD
         </div>
         <nav className="hidden items-center gap-x-6 justify-self-end text-sm font-medium text-white lg:flex">
-          <Link href="/register">Napravi nalog</Link>
+          <Link href="/register">Registruj se</Link>
           <div className="h-6 w-px bg-gray-600" aria-hidden="true" />
-          <Link href="/login">Uloguj se</Link>
+          <Link href="/login">Prijavi se</Link>
         </nav>
       </div>
     </div>
