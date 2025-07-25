@@ -3,7 +3,7 @@ import Categories from "./ui/home/categories";
 import Hero from "./ui/home/hero";
 import PopularProducts from "./ui/home/popular-products";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Hero />

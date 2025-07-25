@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Input from "../ui/components/input";
 import Label from "../ui/components/label";
 
@@ -15,33 +14,11 @@ export default function Page() {
           className="mx-auto"
         />
         <h1 className="mx-auto mt-4 w-fit text-lg/7 font-semibold text-gray-900">
-          Registruj se
+          Resetuj lozinku
         </h1>
-        <p className="mx-auto mt-2 w-fit text-sm text-gray-700">
-          Imaš nalog?&nbsp;
-          <Link href="/login" className="font-medium">
-            Prijavi se
-          </Link>
-        </p>
         <form className="mt-4">
           <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              className="mt-2"
-              required
-            />
-            {false && (
-              <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Email adresa već postoji
-              </p>
-            )}
-          </div>
-
-          <div className="mt-6">
-            <Label htmlFor="password">Lozinka</Label>
+            <Label htmlFor="password">Nova lozinka</Label>
             <Input
               type="password"
               id="password"
@@ -51,15 +28,15 @@ export default function Page() {
             />
             {false && (
               <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Lozinka mora imati najmanje 8 karaktera
+                Lozinka mora da sadrži barem 8 karaktera
               </p>
             )}
           </div>
 
           <div className="mt-6">
-            <Label htmlFor="password_confirmation">Ponovi lozinku</Label>
+            <Label htmlFor="password_confirmation">Ponovi novu lozinku</Label>
             <Input
-              type="password"
+              type="password_confirmation"
               id="password_confirmation"
               name="password_confirmation"
               className="mt-2"
@@ -76,19 +53,14 @@ export default function Page() {
             type="submit"
             className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white"
           >
-            Registruj se
+            Prijavi se
           </button>
+          {false && (
+            <p className="mt-2 line-clamp-1 text-xs text-rose-600">
+              Serverska greška. Pokušajte ponovo za par minuta
+            </p>
+          )}
         </form>
-        <p className="mt-6 text-xs text-gray-600">
-          Registracijom prihvatam&nbsp;
-          <Link href="/terms-of-service" className="font-medium">
-            Uslove korišćenja
-          </Link>
-          &nbsp; i izjavljujem da sam upoznat sa&nbsp;
-          <Link href="/privacy-policy" className="font-medium">
-            Obaveštenjem o privatnosti.
-          </Link>
-        </p>
       </div>
     </div>
   );

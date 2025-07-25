@@ -1,5 +1,5 @@
-import { clsx } from "clsx/lite";
 import { ComponentProps } from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function Label({
   children,
@@ -7,7 +7,10 @@ export default function Label({
   ...rest
 }: ComponentProps<"label">) {
   return (
-    <label {...rest} className={clsx("block text-sm text-gray-900", className)}>
+    <label
+      {...rest}
+      className={twMerge("block text-sm text-gray-900", className)}
+    >
       {children}
     </label>
   );
