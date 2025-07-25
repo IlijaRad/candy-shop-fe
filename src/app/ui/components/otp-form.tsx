@@ -90,6 +90,7 @@ export default function OtpForm() {
             onChange={(e) => handleChange(e, index)}
             onKeyDown={(e) => handleBackspace(e, index)}
             onPaste={(e) => handlePaste(e)}
+            aria-label={`Character ${index + 1} of ${otp.length}`}
           />
         ))}
       </div>
