@@ -63,13 +63,13 @@ export default function Carousel({
     <div
       ref={carouselRef}
       className={clsx(
-        "relative overflow-x-auto flex gap-x-4 mt-9",
+        "relative mt-9 flex gap-x-4 overflow-x-auto",
         !isTouchDevice && "snap-none",
         isTouchDevice && "snap-x snap-mandatory",
         carouselRef.current &&
           carouselRef.current.scrollWidth > carouselRef.current.clientWidth &&
           (dragging ? "cursor-grabbing" : "cursor-grab"),
-        className
+        className,
       )}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}

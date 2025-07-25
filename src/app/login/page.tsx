@@ -3,7 +3,7 @@ import Link from "next/link";
 import Input from "../ui/components/input";
 import Label from "../ui/components/label";
 
-export default function Login() {
+export default function Page() {
   return (
     <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">
       <div className="mx-auto w-full max-w-89 rounded-xl border-gray-200 bg-white lg:border lg:p-8">

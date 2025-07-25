@@ -1,7 +1,7 @@
-import clsx from "clsx/lite"; // Import clsx/lite
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 type HomePageBanner = {
   title: string;
@@ -43,7 +43,7 @@ export default function HomePageBanner({
 }: HomePageBanner) {
   return (
     <div className="bg-white">
-      <div className={clsx("w-full", className)}>
+      <div className={twMerge("w-full", className)}>
         <div className="relative h-200.5">
           <Image
             src={backgroundImageLink}
