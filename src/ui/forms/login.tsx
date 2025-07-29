@@ -44,7 +44,7 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white"
+        className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white disabled:cursor-not-allowed disabled:opacity-50"
         disabled={pending}
       >
         Prijavi se
