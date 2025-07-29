@@ -1,9 +1,15 @@
+"use client";
+
+import { register } from "@/lib/actions/register";
+import Input from "@/ui/components/input";
+import Label from "@/ui/components/label";
 import Image from "next/image";
 import Link from "next/link";
-import Input from "../ui/components/input";
-import Label from "../ui/components/label";
+import { useActionState } from "react";
 
 export default function Page() {
+  const [state, formAction, pending] = useActionState(register, {});
+
   return (
     <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">
       <div className="mx-auto w-full max-w-89 rounded-xl border-gray-200 bg-white lg:border lg:p-8">
@@ -23,7 +29,7 @@ export default function Page() {
             Prijavi se
           </Link>
         </p>
-        <form className="mt-4">
+        <form action={formAction} className="mt-4">
           <div>
             <Label htmlFor="email">Email</Label>
             <Input
@@ -33,9 +39,12 @@ export default function Page() {
               className="mt-2"
               required
             />
-            {false && (
-              <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Email adresa već postoji
+            {state?.errors && state.errors.email && (
+              <p
+                aria-live="polite"
+                className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+              >
+                {state.errors.email[0]}
               </p>
             )}
           </div>
@@ -49,9 +58,12 @@ export default function Page() {
               className="mt-2"
               required
             />
-            {false && (
-              <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Lozinka mora imati najmanje 8 karaktera
+            {state?.errors && state.errors.password && (
+              <p
+                aria-live="polite"
+                className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+              >
+                {state.errors.password[0]}
               </p>
             )}
           </div>
@@ -65,16 +77,20 @@ export default function Page() {
               className="mt-2"
               required
             />
-            {false && (
-              <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Lozinke se ne poklapaju
+            {state?.errors && state.errors.password_confirmation && (
+              <p
+                aria-live="polite"
+                className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+              >
+                {state.errors.password_confirmation[0]}
               </p>
             )}
           </div>
 
           <button
             type="submit"
-            className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white"
+            className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={pending}
           >
             Registruj se
           </button>

@@ -1,9 +1,15 @@
+import { REGISTRATION_BANNER_COOKIE_NAME } from "@/lib/defintions";
+import RegistrationBanner from "@/ui/components/registration-banner";
+import LoginForm from "@/ui/forms/login";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import Input from "../ui/components/input";
-import Label from "../ui/components/label";
 
-export default function Page() {
+export default async function Page() {
+  const cookieStore = await cookies();
+  const showRegistrationBanner =
+    cookieStore.get(REGISTRATION_BANNER_COOKIE_NAME)?.value === "true";
+
   return (
     <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">
       <div className="mx-auto w-full max-w-89 rounded-xl border-gray-200 bg-white lg:border lg:p-8">
@@ -23,46 +29,8 @@ export default function Page() {
             Registruj se
           </Link>
         </p>
-        <form className="mt-4">
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              className="mt-2"
-              required
-            />
-            {false && (
-              <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Nepostojeća email adresa
-              </p>
-            )}
-          </div>
-
-          <div className="mt-6">
-            <Label htmlFor="password">Lozinka</Label>
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              className="mt-2"
-              required
-            />
-            {false && (
-              <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
-                Pogrešna lozinka
-              </p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white"
-          >
-            Prijavi se
-          </button>
-        </form>
+        <RegistrationBanner inCookie={showRegistrationBanner} />
+        <LoginForm />
         <Link
           href="/forgot-password"
           className="mx-auto mt-4 block w-fit text-sm font-medium text-gray-700"
