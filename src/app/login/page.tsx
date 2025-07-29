@@ -1,4 +1,4 @@
-import { REGISTRATIN_BANNER_COOKIE_NAME } from "@/lib/defintions";
+import { REGISTRATION_BANNER_COOKIE_NAME } from "@/lib/defintions";
 import RegistrationBanner from "@/ui/components/registration-banner";
 import LoginForm from "@/ui/forms/login";
 import { cookies } from "next/headers";
@@ -8,7 +8,7 @@ import Link from "next/link";
 export default async function Page() {
   const cookieStore = await cookies();
   const showRegistrationBanner =
-    cookieStore.get(REGISTRATIN_BANNER_COOKIE_NAME)?.value === "true";
+    cookieStore.get(REGISTRATION_BANNER_COOKIE_NAME)?.value === "true";
 
   return (
     <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">

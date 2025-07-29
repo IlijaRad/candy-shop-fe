@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import z from "zod";
-import { REGISTRATIN_BANNER_COOKIE_NAME } from "../defintions";
+import { REGISTRATION_BANNER_COOKIE_NAME } from "../defintions";
 import { post } from "../server-utils";
 
 type FormState = {
@@ -55,7 +55,7 @@ export async function register(_: FormState, formData: FormData) {
   }
 
   const cookieStore = await cookies();
-  cookieStore.set(REGISTRATIN_BANNER_COOKIE_NAME, "true");
+  cookieStore.set(REGISTRATION_BANNER_COOKIE_NAME, "true");
 
   redirect("/login");
 
