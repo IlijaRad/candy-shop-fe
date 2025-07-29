@@ -3,7 +3,12 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="relative h-[calc(100vh-104px)]">
-      <Image src="/hero.png" fill alt="Candies" className="object-cover" />
+      <Image
+        src="/home-page/hero.png"
+        fill
+        alt="Candies"
+        className="object-cover"
+      />
 
       <div className="absolute inset-0 bg-gray-900/80" aria-hidden />
 

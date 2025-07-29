@@ -1,7 +1,7 @@
-import HomePageBanner from "./ui/home/banner";
-import Categories from "./ui/home/categories";
-import Hero from "./ui/home/hero";
-import PopularProducts from "./ui/home/popular-products";
+import HomePageBanner from "@/ui/home/banner";
+import Categories from "@/ui/home/categories";
+import Hero from "@/ui/home/hero";
+import PopularProducts from "@/ui/home/popular-products";
 
 export default function Page() {
   return (
@@ -14,7 +14,7 @@ export default function Page() {
         koji žele više!"
         buttonText="Kupi svoju energiju!"
         buttonLink="/"
-        backgroundImageLink="/banner-1.png"
+        backgroundImageLink="/home-page/banner-1.png"
         className="px-4 pt-8 pb-16 lg:px-8 lg:pb-24"
       />
       <Categories />
@@ -23,7 +23,7 @@ export default function Page() {
         body="Slatkiši koji će ti doneti osmeh na lice i ukus koji se pamti. Idealni za svaku priliku!"
         buttonText="Kupi omiljene slatkiše"
         buttonLink="/"
-        backgroundImageLink="/banner-2.png"
+        backgroundImageLink="/home-page/banner-2.png"
         className="px-4 pt-8 pb-24 lg:px-8 lg:pb-32"
       />
     </>

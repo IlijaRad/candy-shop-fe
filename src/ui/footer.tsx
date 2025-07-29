@@ -13,7 +13,9 @@ export default function Footer() {
     <div className="bg-gray-900">
       <div className="px-4 py-16 lg:px-8 lg:py-32">
         <div className="flex flex-col items-center gap-y-8 text-white">
-          <Image src="/logo.png" width={64} height={62} alt="CandySrb logo" />
+          <Link href="/">
+            <Image src="/logo.png" width={64} height={62} alt="CandySrb logo" />
+          </Link>
           <div className="flex flex-wrap justify-center gap-6 px-6 text-sm">
             <Link href="/">Sokovi</Link>
             <Link href="/">Energetska pića</Link>

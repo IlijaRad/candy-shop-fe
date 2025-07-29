@@ -1,6 +1,6 @@
+import Input from "@/ui/components/input";
+import Label from "@/ui/components/label";
 import Image from "next/image";
-import Input from "../ui/components/input";
-import Label from "../ui/components/label";
 
 export default function Page() {
   return (

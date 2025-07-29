@@ -13,25 +13,25 @@ const categories: Category[] = [
     id: "1",
     name: "Sokovi",
     slug: "juices",
-    default_image_url: "/category-1.png",
+    default_image_url: "/home-page/category-1.png",
   },
   {
     id: "2",
     name: "Energetska pića",
     slug: "energy-drinks",
-    default_image_url: "/category-2.png",
+    default_image_url: "/home-page/category-2.png",
   },
   {
     id: "3",
     name: "Bombone",
     slug: "candies",
-    default_image_url: "/category-3.png",
+    default_image_url: "/home-page/category-3.png",
   },
   {
     id: "4",
     name: "Slatkiši",
     slug: "sweets",
-    default_image_url: "/category-4.png",
+    default_image_url: "/home-page/category-4.png",
   },
 ];
 

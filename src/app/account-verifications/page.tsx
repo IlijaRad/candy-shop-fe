@@ -1,4 +1,4 @@
-import OtpForm from "../ui/components/otp-form";
+import OtpForm from "@/ui/components/otp-form";
 
 export default function Page() {
   return (
