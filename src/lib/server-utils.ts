@@ -22,3 +22,23 @@ export async function post(
     body: body instanceof FormData ? body : JSON.stringify(body),
   });
 }
+
+export async function destroy(
+  endpoint: string,
+  headers?: RequestInit["headers"],
+): Promise<Response> {
+  const cookieStore = await cookies();
+  const bearer = cookieStore.get(AUTHENTICATION_COOKIE_NAME)?.value ?? "";
+
+  headers = headers ?? { "Content-Type": "application/json" };
+  const url = new URL(endpoint, process.env.BE_APP_URL);
+
+  return fetch(url, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${bearer}`,
+      ...headers,
+    },
+  });
+}

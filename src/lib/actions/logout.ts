@@ -1,25 +1,18 @@
+"use server";
+
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { AUTHENTICATION_COOKIE_NAME } from "../defintions";
+import { destroy } from "../server-utils";
 
 export async function logout() {
-  const cookieStore = await cookies();
-  const bearer = cookieStore.get(AUTHENTICATION_COOKIE_NAME)?.value ?? "";
-  const url = new URL("/api/logout", process.env.BE_APP_URL);
-
   try {
-    await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${bearer}`,
-      },
-    });
+    await destroy("/api/logout");
   } catch (e) {
     console.log(e, "errors");
   }
 
+  const cookieStore = await cookies();
   cookieStore.delete(AUTHENTICATION_COOKIE_NAME);
   redirect("/");
 }

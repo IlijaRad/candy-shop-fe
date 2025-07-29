@@ -1,7 +1,8 @@
+import { getUser } from "@/lib/actions/user";
 import Link from "next/link";
 
 export default async function TopBar() {
-  const user = null;
+  const user = await getUser();
 
   const loggedIn = user !== null;
   return (

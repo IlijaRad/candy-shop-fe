@@ -1,8 +1,12 @@
-import { IconSearch, IconShoppingCart, IconUser } from "@tabler/icons-react";
+import { getUser } from "@/lib/actions/user";
+import { IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
+import UserMenu from "./user-menu";
 
-export default function Header() {
+export default async function Header() {
+  const user = await getUser();
+
   return (
     <div className="hidden bg-white lg:block">
       <div className="px-8">
@@ -28,9 +32,8 @@ export default function Header() {
               <button className="-m-2 cursor-pointer p-2" aria-label="Search">
                 <IconSearch />
               </button>
-              <button className="-m-2 cursor-pointer p-2" aria-label="Account">
-                <IconUser />
-              </button>
+
+              <UserMenu user={user} />
             </div>
             <div className="h-6 w-px bg-gray-200" aria-hidden />
             <button

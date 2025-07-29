@@ -39,7 +39,7 @@ export async function getUser() {
 
   if (response.ok) {
     const data = await response.json();
-    const result = schema.safeParse(data);
+    const result = schema.safeParse(data.data);
 
     // This error should be catched during development.
     if (!result.success) {
