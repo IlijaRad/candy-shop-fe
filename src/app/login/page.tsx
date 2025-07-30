@@ -1,4 +1,8 @@
-import { REGISTRATION_BANNER_COOKIE_NAME } from "@/lib/defintions";
+import {
+  CHANGED_PASSWORD_BANNER_COOKIE_NAME,
+  REGISTRATION_BANNER_COOKIE_NAME,
+} from "@/lib/defintions";
+import ChangedPasswordBanner from "@/ui/components/changed-password-banner";
 import RegistrationBanner from "@/ui/components/registration-banner";
 import LoginForm from "@/ui/forms/login";
 import { cookies } from "next/headers";
@@ -9,6 +13,8 @@ export default async function Page() {
   const cookieStore = await cookies();
   const showRegistrationBanner =
     cookieStore.get(REGISTRATION_BANNER_COOKIE_NAME)?.value === "true";
+  const showChangedPasswordBanner =
+    cookieStore.get(CHANGED_PASSWORD_BANNER_COOKIE_NAME)?.value === "true";
 
   return (
     <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">
@@ -30,6 +36,7 @@ export default async function Page() {
           </Link>
         </p>
         <RegistrationBanner inCookie={showRegistrationBanner} />
+        <ChangedPasswordBanner inCookie={showChangedPasswordBanner} />
         <LoginForm />
         <Link
           href="/forgot-password"
