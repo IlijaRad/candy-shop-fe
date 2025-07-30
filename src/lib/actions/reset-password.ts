@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import z from "zod";
-import { REGISTRATION_BANNER_COOKIE_NAME } from "../defintions";
+import { CHANGED_PASSWORD_BANNER_COOKIE_NAME } from "../defintions";
 import { post } from "../server-utils";
 
 type FormState = {
@@ -11,6 +11,7 @@ type FormState = {
 };
 
 const schema = z.object({
+  token: z.string(),
   email: z.email("Email adresa nije validna"),
   password: z.string().min(8, "Lozinka mora da sadrži barem 8 karaktera."),
   password_confirmation: z
@@ -18,8 +19,9 @@ const schema = z.object({
     .min(8, "Lozinka mora da sadrži barem 8 karaktera."),
 });
 
-export async function register(_: FormState, formData: FormData) {
+export async function resetPassword(_: FormState, formData: FormData) {
   const data = schema.safeParse({
+    token: formData.get("token"),
     email: formData.get("email"),
     password: formData.get("password"),
     password_confirmation: formData.get("password_confirmation"),
@@ -32,7 +34,7 @@ export async function register(_: FormState, formData: FormData) {
   }
 
   try {
-    const response = await post("/api/register", data.data);
+    const response = await post("/api/reset-password", data.data);
 
     if (!response.ok) {
       if (response.status == 422) {
@@ -55,7 +57,7 @@ export async function register(_: FormState, formData: FormData) {
   }
 
   const cookieStore = await cookies();
-  cookieStore.set(REGISTRATION_BANNER_COOKIE_NAME, "true");
+  cookieStore.set(CHANGED_PASSWORD_BANNER_COOKIE_NAME, "true");
 
   redirect("/login");
 

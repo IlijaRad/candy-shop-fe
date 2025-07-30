@@ -1,8 +1,17 @@
+"use client";
+
+import { sendPasswordResetLink } from "@/lib/actions/send-password-reset-link";
 import Input from "@/ui/components/input";
 import Label from "@/ui/components/label";
 import Image from "next/image";
+import { useActionState } from "react";
 
 export default function Page() {
+  const [state, formAction, pending] = useActionState(
+    sendPasswordResetLink,
+    {},
+  );
+
   return (
     <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">
       <div className="mx-auto w-full max-w-89 rounded-xl border-gray-200 bg-white lg:border lg:p-8">
@@ -19,7 +28,7 @@ export default function Page() {
         <p className="mx-auto mt-2 text-center text-sm text-gray-700">
           Unesite vašu email adresu na koju ćemo vam poslati dalje korake.
         </p>
-        <form className="mt-4">
+        <form action={formAction} className="mt-4">
           <Label htmlFor="email">Email</Label>
           <Input
             type="email"
@@ -29,9 +38,19 @@ export default function Page() {
             required
           />
 
+          {state?.errors && (
+            <p
+              aria-live="polite"
+              className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+            >
+              {state.errors["email" as keyof typeof state.errors]?.[0]}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="text-medium mt-6 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white"
+            className="text-medium mt-6 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={pending}
           >
             Potvrdi
           </button>
