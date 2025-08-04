@@ -40,17 +40,18 @@ export async function register(_: FormState, formData: FormData) {
           errors: { [key: string]: string[] };
         };
 
-        return { errors };
+        return { errors, email: data.data.email };
       }
 
       const { message } = (await response.json()) as { message: string };
-      return { errors: { server: [message] } };
+      return { errors: { server: [message] }, email: data.data.email };
     }
   } catch {
     return {
       errors: {
         server: ["Serverska greška. Pokušajte ponovo za par minuta."],
       },
+      email: data.data.email,
     };
   }
 

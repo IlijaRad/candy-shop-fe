@@ -2,7 +2,7 @@ import { getUser } from "@/lib/actions/user";
 import { IconMenu2, IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import UserMenu from "./user-menu";
+import UserButton from "./user-button";
 
 export default async function HeaderMobile() {
   const user = await getUser();
@@ -30,7 +30,7 @@ export default async function HeaderMobile() {
           </Link>
 
           <div className="flex gap-x-4 justify-self-end">
-            <UserMenu user={user} />
+            {user && <UserButton user={user} />}
 
             <div className="h-6 w-px bg-gray-200" aria-hidden />
             <button

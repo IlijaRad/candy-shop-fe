@@ -3,17 +3,13 @@ import { logout } from "@/lib/actions/logout";
 import { AuthenticatedUser } from "@/lib/actions/user";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { IconUser } from "@tabler/icons-react";
-import clsx from "clsx";
 
-export default function UserMenu({ user }: { user: AuthenticatedUser | null }) {
+export default function UserButton({ user }: { user: AuthenticatedUser }) {
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild disabled={!user}>
+      <DropdownMenu.Trigger asChild>
         <button
-          className={clsx(
-            "-m-2 flex items-center gap-x-2 p-2 text-gray-400",
-            user && "cursor-pointer",
-          )}
+          className="-m-2 flex cursor-pointer items-center gap-x-2 p-2 text-gray-400"
           aria-label="User Menu"
         >
           <IconUser className="shrink-0" />
@@ -33,8 +29,6 @@ export default function UserMenu({ user }: { user: AuthenticatedUser | null }) {
           >
             Log out
           </DropdownMenu.Item>
-
-          {/* <DropdownMenu.Separator className="m-[5px] h-px bg-violet6" /> */}
 
           <DropdownMenu.Arrow className="fill-white" />
         </DropdownMenu.Content>

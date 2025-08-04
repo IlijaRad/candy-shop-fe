@@ -38,7 +38,7 @@ export async function login(_: FormState, formData: FormData) {
 
     if (response.status === 400 || !response.ok) {
       const { errors } = await response.json();
-      return { errors };
+      return { errors, email: data.data.email };
     }
 
     payload = (await response.json()) as typeof payload;
@@ -58,6 +58,7 @@ export async function login(_: FormState, formData: FormData) {
       errors: {
         server: ["Serverska greška. Pokušajte ponovo za par minuta."],
       },
+      email: data.data.email,
     };
   }
 

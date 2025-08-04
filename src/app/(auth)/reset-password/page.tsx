@@ -1,11 +1,11 @@
+import { SearchPrams } from "@/lib/defintions";
 import ResetPasswordForm from "@/ui/forms/reset-password";
-import { SearchParams } from "next/dist/server/request/search-params";
 import { redirect } from "next/navigation";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: SearchParams;
+  searchParams: SearchPrams;
 }) {
   const { token, email } = await searchParams;
 

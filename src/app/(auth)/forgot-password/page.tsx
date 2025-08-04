@@ -36,12 +36,13 @@ export default function Page() {
             name="email"
             className="mt-2"
             required
+            defaultValue={state.email}
           />
 
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+              className="mt-1 line-clamp-2 text-xs text-rose-600"
             >
               {state.errors["email" as keyof typeof state.errors]?.[0]}
             </p>
@@ -54,6 +55,14 @@ export default function Page() {
           >
             Potvrdi
           </button>
+          {state?.errors && (
+            <p
+              aria-live="polite"
+              className="mt-4 line-clamp-2 text-xs text-rose-600"
+            >
+              {state.errors["server" as keyof typeof state.errors]?.[0]}
+            </p>
+          )}
         </form>
       </div>
     </div>

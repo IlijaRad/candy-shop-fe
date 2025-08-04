@@ -38,11 +38,12 @@ export default function Page() {
               name="email"
               className="mt-2"
               required
+              defaultValue={state.email}
             />
             {state?.errors && state.errors.email && (
               <p
                 aria-live="polite"
-                className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+                className="mt-1 line-clamp-2 text-xs text-rose-600"
               >
                 {state.errors.email[0]}
               </p>
@@ -61,7 +62,7 @@ export default function Page() {
             {state?.errors && state.errors.password && (
               <p
                 aria-live="polite"
-                className="mt-0.5 line-clamp-1 text-xs text-rose-600"
+                className="mt-1 line-clamp-2 text-xs text-rose-600"
               >
                 {state.errors.password[0]}
               </p>
@@ -77,14 +78,6 @@ export default function Page() {
               className="mt-2"
               required
             />
-            {state?.errors && state.errors.password_confirmation && (
-              <p
-                aria-live="polite"
-                className="mt-0.5 line-clamp-1 text-xs text-rose-600"
-              >
-                {state.errors.password_confirmation[0]}
-              </p>
-            )}
           </div>
 
           <button
@@ -94,6 +87,14 @@ export default function Page() {
           >
             Registruj se
           </button>
+          {state?.errors && (
+            <p
+              aria-live="polite"
+              className="mt-4 line-clamp-2 text-xs text-rose-600"
+            >
+              {state.errors["server" as keyof typeof state.errors]?.[0]}
+            </p>
+          )}
         </form>
         <p className="mt-6 text-xs text-gray-600">
           Registracijom prihvatam&nbsp;
