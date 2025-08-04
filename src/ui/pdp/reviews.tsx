@@ -9,9 +9,8 @@ const ProductReviews = ({ reviews }: { reviews: Reviews }) => {
         {reviews.reviews.map((review) => {
           const date = new Date(review.updated_at);
 
-          // Get the day, month, and year
           const day = date.getDate();
-          const month = date.getMonth() + 1; // Months are 0-based (0 = January, 11 = December)
+          const month = date.getMonth() + 1;
           const year = date.getFullYear();
 
           return (

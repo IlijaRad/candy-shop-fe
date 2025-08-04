@@ -30,8 +30,6 @@ export default function UserButton({ user }: { user: AuthenticatedUser }) {
             Log out
           </DropdownMenu.Item>
 
-          {/* <DropdownMenu.Separator className="m-1.5 h-px bg-gray-200" /> */}
-
           <DropdownMenu.Arrow className="fill-white" />
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
