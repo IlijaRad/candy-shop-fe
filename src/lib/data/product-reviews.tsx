@@ -6,7 +6,8 @@ export type Review = z.infer<typeof reviewSchema>;
 type ReviewMetadata = z.infer<typeof metadataSchema>;
 
 export type Reviews = {
-  data: Review[];
+  reviews: Review[];
+  average_rating: number;
   meta: ReviewMetadata;
 };
 
@@ -16,6 +17,8 @@ const reviewSchema = z.object({
   author_name: z.string(),
   content: z.string(),
   rating: z.number(),
+  created_at: z.string(),
+  updated_at: z.string(),
 });
 
 const metadataSchema = z.object({
@@ -26,7 +29,8 @@ const metadataSchema = z.object({
 });
 
 const schema = z.object({
-  data: z.array(reviewSchema),
+  reviews: z.array(reviewSchema),
+  average_rating: z.number(),
   meta: metadataSchema,
 });
 
@@ -51,7 +55,8 @@ export async function getProductReviews(
   if (response instanceof Response) {
     // If response status is different from 404 we should report this somewhere.
     return {
-      data: [],
+      reviews: [],
+      average_rating: 0,
       meta: {
         current_page: 1,
         total: 0,

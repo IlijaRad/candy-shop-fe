@@ -1,4 +1,5 @@
 import { fetchServerSide } from "@/lib/server-utils";
+import { cache } from "react";
 import "server-only";
 import { z } from "zod";
 
@@ -35,25 +36,21 @@ const schema = z.object({
   }),
 });
 
-export async function getProductDetails(slug: string): Promise<Product | null> {
-  const endpoint = `api/products/${slug}`;
+export const getProductDetails = cache(
+  async (slug: string): Promise<Product | null> => {
+    const endpoint = `api/products/${slug}`;
 
-  const headers: RequestInit["headers"] = {};
+    const response = await fetchServerSide<Product>(endpoint, schema, {
+      next: {
+        revalidate: 60 * 5,
+        tags: ["product-details"],
+      },
+    });
 
-  headers["Content-Type"] = "application/json";
+    if (response instanceof Response) {
+      return null;
+    }
 
-  const response = await fetchServerSide<Product>(endpoint, schema, {
-    headers,
-    next: {
-      revalidate: 60 * 5,
-      tags: ["product-details", "products", slug, "webshop"],
-    },
-  });
-
-  if (response instanceof Response) {
-    // If response status is different from 404 we should report this somewhere.
-    return null;
-  }
-
-  return response;
-}
+    return response;
+  },
+);

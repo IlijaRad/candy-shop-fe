@@ -2,7 +2,7 @@ import { getUser } from "@/lib/actions/user";
 import { IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import UserMenu from "./user-menu";
+import UserButton from "./user-button";
 
 export default async function Header() {
   const user = await getUser();
@@ -33,7 +33,7 @@ export default async function Header() {
                 <IconSearch />
               </button>
 
-              <UserMenu user={user} />
+              {user && <UserButton user={user} />}
             </div>
             <div className="h-6 w-px bg-gray-200" aria-hidden />
             <button

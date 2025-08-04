@@ -83,7 +83,7 @@ export default function OtpForm() {
             key={index}
             id={`code_${index}`}
             type="text"
-            className="h-16 px-0.5 text-center"
+            className="h-16 px-0.5 text-center text-base"
             required
             value={digit}
             maxLength={1}
@@ -96,7 +96,7 @@ export default function OtpForm() {
       </div>
 
       {false && (
-        <p className="mt-0.5 line-clamp-1 text-xs text-rose-600">
+        <p className="mt-1 line-clamp-2 text-xs text-rose-600">
           Pogrešan OTP kod
         </p>
       )}

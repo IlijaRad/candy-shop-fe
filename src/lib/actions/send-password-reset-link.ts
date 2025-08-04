@@ -32,6 +32,7 @@ export async function sendPasswordResetLink(_: FormState, formData: FormData) {
         errors: {
           email: [message],
         },
+        email: data.data.email,
       };
     }
   } catch {
@@ -39,6 +40,7 @@ export async function sendPasswordResetLink(_: FormState, formData: FormData) {
       errors: {
         server: ["Serverska greška. Pokušajte ponovo za par minuta."],
       },
+      email: data.data.email,
     };
   }
 

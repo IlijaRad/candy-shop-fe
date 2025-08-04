@@ -1,13 +1,16 @@
+import { getProductList } from "@/lib/data/product-list";
 import HomePageBanner from "@/ui/home/banner";
 import Categories from "@/ui/home/categories";
 import Hero from "@/ui/home/hero";
 import PopularProducts from "@/ui/home/popular-products";
 
-export default function Page() {
+export default async function Page() {
+  const products = await getProductList();
+
   return (
     <>
       <Hero />
-      <PopularProducts />
+      <PopularProducts products={products} />
       <HomePageBanner
         title="Pokreni se uz našu energiju!"
         body="Snažan, osvežavajući i pun energije. Savršen izbor za one 
