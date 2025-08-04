@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "candy-shop-srb.laravel.cloud",
+        pathname: "/**",
+      },
     ],
   },
 };
