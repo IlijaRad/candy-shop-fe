@@ -32,7 +32,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${process.env.FE_APP_URL}/products/${slug}}` },
+    alternates: { canonical: `${process.env.FE_APP_URL}/products/${slug}` },
     openGraph: {
       title,
       description,
