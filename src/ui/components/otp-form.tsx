@@ -96,14 +96,14 @@ export default function OtpForm() {
       </div>
 
       {false && (
-        <p className="mt-1 line-clamp-2 text-xs text-rose-600">
+        <p className="mt-1 line-clamp-2 text-xs text-red-600">
           Pogrešan OTP kod
         </p>
       )}
 
       <button
         type="submit"
-        className="text-medium mt-6 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white"
+        className="text-medium mt-6 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white transition-colors hover:bg-gray-800"
       >
         Potvrdi
       </button>

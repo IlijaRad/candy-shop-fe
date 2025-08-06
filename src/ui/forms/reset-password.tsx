@@ -43,7 +43,7 @@ export default function ResetPasswordForm({
             {state?.errors && state.errors.password && (
               <p
                 aria-live="polite"
-                className="mt-1 line-clamp-2 text-xs text-rose-600"
+                className="mt-1 line-clamp-2 text-xs text-red-600"
               >
                 {state.errors.password[0]}
               </p>
@@ -62,7 +62,7 @@ export default function ResetPasswordForm({
             {state?.errors && state.errors.password_confirmation && (
               <p
                 aria-live="polite"
-                className="mt-1 line-clamp-2 text-xs text-rose-600"
+                className="mt-1 line-clamp-2 text-xs text-red-600"
               >
                 {state.errors.password_confirmation[0]}
               </p>
@@ -79,7 +79,7 @@ export default function ResetPasswordForm({
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-4 line-clamp-2 text-xs text-rose-600"
+              className="mt-4 line-clamp-2 text-xs text-red-600"
             >
               {state.errors["server" as keyof typeof state.errors]?.[0]}
             </p>
@@ -87,7 +87,7 @@ export default function ResetPasswordForm({
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-4 line-clamp-2 text-xs text-rose-600"
+              className="mt-4 line-clamp-2 text-xs text-red-600"
             >
               {state.errors["email" as keyof typeof state.errors]?.[0]}
             </p>
@@ -95,7 +95,7 @@ export default function ResetPasswordForm({
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-4 line-clamp-2 text-xs text-rose-600"
+              className="mt-4 line-clamp-2 text-xs text-red-600"
             >
               {state.errors["token" as keyof typeof state.errors]?.[0]}
             </p>

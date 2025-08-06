@@ -12,12 +12,26 @@ export default async function TopBar() {
         <div className="flex-1 text-center text-sm font-medium text-white lg:flex-none">
           Besplatna dostava za porudžbine preko 5000RSD
         </div>
-        {!loggedIn && (
-          <nav className="hidden text-sm text-white lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-            <Link href="/register">Registruj se</Link>
+        {!loggedIn ? (
+          <nav className="hidden text-sm lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+            <Link
+              href="/register"
+              prefetch={false}
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Registruj se
+            </Link>
             <div className="h-6 w-px bg-gray-600" aria-hidden="true" />
-            <Link href="/login">Prijavi se</Link>
+            <Link
+              href="/login"
+              prefetch={false}
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Prijavi se
+            </Link>
           </nav>
+        ) : (
+          <div className="hidden lg:block lg:flex-1" aria-hidden="true" />
         )}
       </div>
     </div>

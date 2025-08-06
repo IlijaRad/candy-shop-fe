@@ -20,6 +20,7 @@ export default function ShareButtonMobile({ url }: { url: string }) {
     <button
       onClick={sharePage}
       className="flex size-10 cursor-pointer items-center justify-center text-gray-600/80 md:hidden"
+      aria-label="Share"
     >
       <IconShare />
     </button>

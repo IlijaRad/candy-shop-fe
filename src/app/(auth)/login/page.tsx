@@ -31,7 +31,11 @@ export default async function Page() {
         </h1>
         <p className="mx-auto mt-2 w-fit text-sm text-gray-700">
           Nemaš nalog?&nbsp;
-          <Link href="/register" className="font-medium">
+          <Link
+            href="/register"
+            className="font-medium transition-colors hover:text-gray-950"
+            prefetch={false}
+          >
             Registruj se
           </Link>
         </p>
@@ -40,7 +44,8 @@ export default async function Page() {
         <LoginForm />
         <Link
           href="/forgot-password"
-          className="mx-auto mt-4 block w-fit text-sm font-medium text-gray-700"
+          className="mx-auto mt-4 block w-fit text-sm font-medium text-gray-700 transition-colors hover:text-gray-950"
+          prefetch={false}
         >
           Zaboravljena lozinka?
         </Link>

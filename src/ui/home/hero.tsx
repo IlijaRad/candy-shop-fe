@@ -22,7 +22,7 @@ export default function Hero() {
           Novi slatkiši su konačno stigli. Pogledaj proizvode iz naše najnovije
           ponude dok su još uvek na stanju!&nbsp;
         </p>
-        <button className="mt-6 block cursor-pointer rounded-md bg-white px-8 py-3 font-medium text-gray-900 hover:bg-gray-100 lg:mt-8">
+        <button className="mt-6 block cursor-pointer rounded-md bg-white px-8 py-3 font-medium text-gray-900 transition-colors hover:bg-gray-100 lg:mt-8">
           Kupi nove slatkiše
         </button>
       </div>

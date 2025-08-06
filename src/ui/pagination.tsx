@@ -117,7 +117,7 @@ export default function Pagination({
               className={twMerge(
                 page === 1
                   ? "pointer-events-none opacity-50"
-                  : "transition-colors lg:hover:bg-gray-200",
+                  : "transition-colors hover:bg-gray-200",
                 "flex size-9 items-center justify-center rounded-md bg-white",
               )}
               href={item.href}
@@ -142,10 +142,10 @@ export default function Pagination({
               key={index}
               prefetch={false}
               className={twMerge(
-                "flex size-9 items-center justify-center rounded-md bg-white text-sm font-semibold",
+                "flex size-9 items-center justify-center rounded-md bg-white text-sm font-semibold transition-colors",
                 Number(pageParam) === item.page
-                  ? "bg-gray-900 text-white"
-                  : "transition-colors lg:hover:bg-gray-200",
+                  ? "bg-gray-900 text-white hover:bg-gray-800"
+                  : "hover:bg-gray-100",
               )}
               href={item.href}
               scroll={false}
@@ -162,7 +162,7 @@ export default function Pagination({
               className={twMerge(
                 page >= pageCount
                   ? "pointer-events-none opacity-50"
-                  : "transition-colors lg:hover:bg-gray-200",
+                  : "transition-colors hover:bg-gray-200",
                 "flex size-9 items-center justify-center rounded-md bg-white",
               )}
               href={item.href}

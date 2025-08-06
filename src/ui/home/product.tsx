@@ -11,13 +11,13 @@ export default function Product({
 }) {
   return (
     <div className="shrink-0 snap-start">
-      <div className="relative isolate max-w-45">
+      <div className="group relative isolate max-w-45">
         <Image
           src={product.default_image_url || ""}
           alt={product.name}
           width={180}
           height={180}
-          className="rounded-md"
+          className="rounded-md transition-opacity group-hover:opacity-75"
         />
         <div className="mt-2 text-gray-700">
           <Link href={`/products/${product.slug}`} onClick={onClick}>
