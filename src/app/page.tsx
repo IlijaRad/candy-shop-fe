@@ -13,12 +13,10 @@ export default async function Page() {
       <PopularProducts products={products} />
       <HomePageBanner
         title="Pokreni se uz našu energiju!"
-        body="Snažan, osvežavajući i pun energije. Savršen izbor za one 
-        koji žele više!"
-        buttonText="Kupi svoju energiju!"
+        body="Snažan, osvežavajući i pun energije. Savršen izbor za sve koji žele više snage, više fokusa i više uzbuđenja u svakom gutljaju!"
+        buttonText="Kupi svoju energiju"
         buttonLink="/"
         backgroundImageLink="/home-page/banner-1.png"
-        className="px-4 pt-8 pb-16 lg:px-8 lg:pb-24"
       />
       <Categories />
       <HomePageBanner
@@ -27,8 +25,8 @@ export default async function Page() {
         buttonText="Kupi omiljene slatkiše"
         buttonLink="/"
         backgroundImageLink="/home-page/banner-2.png"
-        className="px-4 pt-8 pb-24 lg:px-8 lg:pb-32"
       />
+      <div className="mt-24 lg:mt-32"></div>
     </>
   );
 }

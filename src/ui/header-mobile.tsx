@@ -32,7 +32,6 @@ export default async function HeaderMobile() {
           <div className="flex gap-x-4 justify-self-end">
             {user && <UserButton user={user} />}
 
-            <div className="h-6 w-px bg-gray-200" aria-hidden />
             <button
               className="-m-2 flex cursor-pointer items-center gap-x-2 p-2 text-gray-400"
               aria-label="Cart"
