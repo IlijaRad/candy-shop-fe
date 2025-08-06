@@ -37,19 +37,19 @@ const categories: Category[] = [
 
 export default function Categories() {
   return (
-    <div className="bg-white">
-      <div className="px-4 pt-8 pb-8 lg:px-8 lg:pb-16">
+    <section className="bg-white">
+      <div className="px-4 pt-24 lg:px-8 lg:pt-32 xl:mx-auto xl:max-w-7xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-gray-900 lg:text-[32px]/8">
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">
             Kategorije
           </h2>
         </div>
-        <Carousel className="pb-8">
+        <Carousel className="pb-8 lg:gap-x-6.5">
           {categories.map((category) => (
             <Category category={category} key={category.id} />
           ))}
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 }

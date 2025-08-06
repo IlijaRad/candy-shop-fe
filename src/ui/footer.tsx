@@ -11,7 +11,7 @@ import ExternalLink from "./components/external-link";
 export default function Footer() {
   return (
     <div className="bg-gray-900">
-      <div className="px-4 py-16 lg:px-8 lg:py-32">
+      <div className="px-4 py-16 sm:px-6 lg:px-8 lg:py-32 xl:mx-auto xl:max-w-7xl">
         <div className="flex flex-col items-center gap-y-8 text-white">
           <Link href="/">
             <Image src="/logo.png" width={64} height={62} alt="CandySrb logo" />

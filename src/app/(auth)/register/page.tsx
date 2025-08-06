@@ -11,7 +11,7 @@ export default function Page() {
   const [state, formAction, pending] = useActionState(register, {});
 
   return (
-    <div className="bg-white px-4 py-20 lg:px-8 lg:py-24">
+    <div className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto w-full max-w-89 rounded-xl border-gray-200 bg-white lg:border lg:p-8">
         <Image
           src="/logo.png"

@@ -11,18 +11,18 @@ export default function Product({
 }) {
   return (
     <div className="shrink-0 snap-start">
-      <div className="relative isolate">
+      <div className="relative isolate max-w-45">
         <Image
           src={product.default_image_url || ""}
           alt={product.name}
-          width={280}
-          height={280}
+          width={180}
+          height={180}
           className="rounded-md"
         />
         <div className="mt-2 text-gray-700">
           <Link href={`/products/${product.slug}`} onClick={onClick}>
             <span className="absolute inset-0 z-10"></span>
-            <div className="line-clamp-2 max-w-70">{product.name}</div>
+            <div className="line-clamp-2">{product.name}</div>
           </Link>
         </div>
       </div>
