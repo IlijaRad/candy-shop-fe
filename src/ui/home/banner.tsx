@@ -67,7 +67,7 @@ export default function HomePageBanner({
             <p className="mt-3 text-xl text-white">{body}</p>
             <Link
               href={buttonLink}
-              className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
+              className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 transition-colors hover:bg-gray-100 sm:w-auto"
             >
               {buttonText}
             </Link>

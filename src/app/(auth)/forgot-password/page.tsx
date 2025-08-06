@@ -42,7 +42,7 @@ export default function Page() {
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-1 line-clamp-2 text-xs text-rose-600"
+              className="mt-1 line-clamp-2 text-xs text-red-600"
             >
               {state.errors["email" as keyof typeof state.errors]?.[0]}
             </p>
@@ -50,7 +50,7 @@ export default function Page() {
 
           <button
             type="submit"
-            className="text-medium mt-6 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white disabled:cursor-not-allowed disabled:opacity-50"
+            className="text-medium mt-6 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white transition-all hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={pending}
           >
             Potvrdi
@@ -58,7 +58,7 @@ export default function Page() {
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-4 line-clamp-2 text-xs text-rose-600"
+              className="mt-4 line-clamp-2 text-xs text-red-600"
             >
               {state.errors["server" as keyof typeof state.errors]?.[0]}
             </p>

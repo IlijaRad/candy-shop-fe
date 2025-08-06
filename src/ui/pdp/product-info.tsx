@@ -2,6 +2,7 @@ import { Product } from "@/lib/data/product-details";
 
 import { IconBrandFacebook, IconBrandX, IconHeart } from "@tabler/icons-react";
 import { ComponentProps } from "react";
+import ExternalLink from "../components/external-link";
 import CopyLinkButton from "./copy-link-button";
 import QuantityCombobox from "./quantity-combobox";
 import ShareButtonMobile from "./share-button-mobile";
@@ -37,7 +38,7 @@ const ProductInfo = ({
           {product.price} RSD
         </div>
         {discountPercentage ? (
-          <div className="rounded-sm bg-yellow-400/30 px-1.5 text-xs/6 font-medium text-yellow-700">
+          <div className="rounded-sm bg-yellow-400/30 px-1.5 text-xs/6 font-medium text-yellow-800">
             -{discountPercentage}%
           </div>
         ) : null}
@@ -49,10 +50,13 @@ const ProductInfo = ({
         <QuantityCombobox maxQuantity={product.stock} />
       </div>
       <div className="mt-6 flex items-center gap-x-4 lg:mt-8">
-        <button className="flex h-12 cursor-pointer items-center justify-center rounded-md border-0 bg-gray-900 px-18.5 font-bold text-white">
+        <button className="flex h-12 cursor-pointer items-center justify-center rounded-md bg-gray-900 px-18.5 font-medium text-white transition-colors hover:bg-gray-800">
           Dodaj u korpu
         </button>
-        <button className="flex size-12 cursor-pointer items-center justify-center">
+        <button
+          aria-label="Add product to favorites"
+          className="flex size-12 cursor-pointer items-center justify-center rounded-md transition-colors hover:bg-gray-100"
+        >
           <IconHeart size={24} className="stroke-pink-600" />
         </button>
       </div>
@@ -61,21 +65,21 @@ const ProductInfo = ({
       <div className="mt-1 hidden gap-x-2 md:flex">
         <CopyLinkButton url={productUrl} />
 
-        <a
+        <ExternalLink
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodedProductUrl}`}
-          target="_blank"
           className="flex size-10 cursor-pointer items-center justify-center text-gray-600/80"
+          aria-label="Share on Facebook"
         >
           <IconBrandFacebook />
-        </a>
+        </ExternalLink>
 
-        <a
+        <ExternalLink
           href={`https://twitter.com/share?url=${encodedProductUrl}`}
-          target="_blank"
           className="flex size-10 cursor-pointer items-center justify-center text-gray-600/80"
+          aria-label="Share on X"
         >
           <IconBrandX />
-        </a>
+        </ExternalLink>
       </div>
       <ShareButtonMobile url={productUrl} />
     </div>

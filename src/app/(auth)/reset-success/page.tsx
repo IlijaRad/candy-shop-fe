@@ -20,7 +20,7 @@ export default function Page() {
         </p>
         <Link
           href="/login"
-          className="text-medium mt-6 flex h-9 w-full cursor-pointer items-center justify-center gap-x-1 rounded-md bg-gray-900 px-3.5 text-sm text-white"
+          className="text-medium mt-6 flex h-9 w-full cursor-pointer items-center justify-center gap-x-1 rounded-md bg-gray-900 px-3.5 text-sm text-white transition-all hover:bg-gray-800"
         >
           <IconChevronLeft size={16} />
           Prijava

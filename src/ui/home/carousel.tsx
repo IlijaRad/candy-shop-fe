@@ -64,8 +64,7 @@ export default function Carousel({
       ref={carouselRef}
       className={clsx(
         "relative mt-9 flex gap-x-4 overflow-x-auto",
-        !isTouchDevice && "snap-none",
-        isTouchDevice && "snap-x snap-mandatory",
+        isTouchDevice ? "snap-x snap-mandatory" : "snap-none",
         carouselRef.current &&
           carouselRef.current.scrollWidth > carouselRef.current.clientWidth &&
           (dragging ? "cursor-grabbing" : "cursor-grab"),

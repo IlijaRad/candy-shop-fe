@@ -19,7 +19,7 @@ export default function Category({
     <Link
       href={`/categories/${category.slug}`}
       onClick={onClick}
-      className="relative flex h-77.5 w-71 shrink-0 snap-start p-6"
+      className="relative flex h-77.5 w-71 shrink-0 snap-start p-6 transition-opacity hover:opacity-75"
     >
       <div className="absolute inset-0">
         <Image

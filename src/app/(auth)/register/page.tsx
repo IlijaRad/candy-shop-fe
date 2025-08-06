@@ -25,7 +25,11 @@ export default function Page() {
         </h1>
         <p className="mx-auto mt-2 w-fit text-sm text-gray-700">
           Imaš nalog?&nbsp;
-          <Link href="/login" className="font-medium">
+          <Link
+            href="/login"
+            className="font-medium transition-colors hover:text-gray-950"
+            prefetch={false}
+          >
             Prijavi se
           </Link>
         </p>
@@ -43,7 +47,7 @@ export default function Page() {
             {state?.errors && state.errors.email && (
               <p
                 aria-live="polite"
-                className="mt-1 line-clamp-2 text-xs text-rose-600"
+                className="mt-1 line-clamp-2 text-xs text-red-600"
               >
                 {state.errors.email[0]}
               </p>
@@ -62,7 +66,7 @@ export default function Page() {
             {state?.errors && state.errors.password && (
               <p
                 aria-live="polite"
-                className="mt-1 line-clamp-2 text-xs text-rose-600"
+                className="mt-1 line-clamp-2 text-xs text-red-600"
               >
                 {state.errors.password[0]}
               </p>
@@ -82,7 +86,7 @@ export default function Page() {
 
           <button
             type="submit"
-            className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white disabled:cursor-not-allowed disabled:opacity-50"
+            className="text-medium mt-8 h-9 w-full cursor-pointer rounded-md bg-gray-900 px-3.5 text-sm text-white transition-all hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={pending}
           >
             Registruj se
@@ -90,7 +94,7 @@ export default function Page() {
           {state?.errors && (
             <p
               aria-live="polite"
-              className="mt-4 line-clamp-2 text-xs text-rose-600"
+              className="mt-4 line-clamp-2 text-xs text-red-600"
             >
               {state.errors["server" as keyof typeof state.errors]?.[0]}
             </p>
@@ -98,11 +102,17 @@ export default function Page() {
         </form>
         <p className="mt-6 text-xs text-gray-600">
           Registracijom prihvatam&nbsp;
-          <Link href="/terms-of-service" className="font-medium">
+          <Link
+            href="/terms-of-service"
+            className="font-medium transition-colors hover:text-gray-900"
+          >
             Uslove korišćenja
           </Link>
           &nbsp; i izjavljujem da sam upoznat sa&nbsp;
-          <Link href="/privacy-policy" className="font-medium">
+          <Link
+            href="/privacy-policy"
+            className="font-medium transition-colors hover:text-gray-900"
+          >
             Obaveštenjem o privatnosti.
           </Link>
         </p>

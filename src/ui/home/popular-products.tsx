@@ -18,7 +18,7 @@ export default function PopularProducts({
           </h2>
           <Link
             href="/"
-            className="hidden items-center gap-x-0.5 text-sm font-semibold text-rose-600 transition-colors hover:text-rose-800 lg:flex"
+            className="hidden items-center gap-x-0.5 text-sm font-semibold text-pink-600 transition-colors hover:text-pink-900 lg:flex"
           >
             Prikaži sve
             <IconArrowNarrowRight size={16} />
@@ -33,7 +33,7 @@ export default function PopularProducts({
 
         <Link
           href="/"
-          className="mt-6 mb-8 flex items-center gap-x-0.5 text-sm font-semibold text-rose-600 transition-colors hover:text-rose-800 lg:hidden"
+          className="mt-6 mb-8 flex items-center gap-x-0.5 text-sm font-semibold text-pink-600 transition-colors hover:text-pink-900 lg:hidden"
         >
           Prikaži sve
           <IconArrowNarrowRight size={16} />

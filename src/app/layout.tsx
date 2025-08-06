@@ -1,7 +1,7 @@
 import Footer from "@/ui/footer";
-import Header from "@/ui/header";
-import HeaderMobile from "@/ui/header-mobile";
-import TopBar from "@/ui/top-bar";
+import Header from "@/ui/header/header";
+import HeaderMobile from "@/ui/header/header-mobile";
+import TopBar from "@/ui/header/top-bar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";

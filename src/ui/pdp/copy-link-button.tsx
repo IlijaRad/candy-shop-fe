@@ -28,19 +28,20 @@ const CopyLinkButton = ({ url }: { url: string }) => {
 
   return (
     <Popover.Root open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
-      <Popover.Trigger asChild>
-        <button
-          className="flex size-10 cursor-pointer items-center justify-center text-gray-600/80"
-          onClick={copyToClipboard}
-        >
-          <IconLink />
-        </button>
+      <Popover.Trigger
+        className="flex size-10 cursor-pointer items-center justify-center text-gray-600/80"
+        onClick={copyToClipboard}
+        aria-label="Copy Link"
+      >
+        <IconLink />
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content className="PopoverContent" sideOffset={5} side="top">
-          <div className="w-fit rounded-md bg-gray-900 px-2 py-2 text-sm text-white">
-            Kopirano
-          </div>
+        <Popover.Content
+          sideOffset={5}
+          side="top"
+          className="rounded-md bg-gray-900 p-2 text-sm text-white"
+        >
+          Kopirano
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>
