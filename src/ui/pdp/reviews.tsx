@@ -1,12 +1,13 @@
 import { Reviews } from "@/lib/data/product-reviews";
+import { IconPencil, IconStar } from "@tabler/icons-react";
 import Pagination from "../pagination";
 import StarRating from "./star-rating";
 
 const ProductReviews = ({ reviews }: { reviews: Reviews }) => {
   return (
     <>
-      <div>
-        {reviews.reviews.map((review) => {
+      {reviews.reviews.length > 1 ? (
+        reviews.reviews.map((review) => {
           const date = new Date(review.updated_at);
 
           const day = date.getDate();
@@ -30,8 +31,29 @@ const ProductReviews = ({ reviews }: { reviews: Reviews }) => {
               </div>
             </div>
           );
-        })}
-      </div>
+        })
+      ) : (
+        <div className="mt-8 lg:mt-16">
+          <div className="flex items-center justify-center text-pink-500">
+            <IconStar />
+            <IconStar />
+            <IconStar />
+            <IconStar />
+            <IconStar />
+          </div>
+          <div className="mt-4 text-center text-xl font-semibold text-gray-900">
+            Još nema recenzija
+          </div>
+          <p className="mx-auto mt-4 max-w-112 text-center text-gray-600">
+            Prva recenzija je najvažnija! Pomozite drugima da saznaju više o
+            ovom proizvodu.
+          </p>
+          <button className="mx-auto mt-6 flex cursor-pointer items-center gap-x-2 rounded-md bg-gray-900 py-2 pr-4 pl-3.5 font-medium text-white">
+            <IconPencil size={16} />
+            <span>Napišite recenziju</span>
+          </button>
+        </div>
+      )}
       {reviews.meta.last_page > 1 ? (
         <div className="mt-12 flex justify-center lg:mt-16">
           <Pagination pageCount={reviews.meta.last_page} />

@@ -1,10 +1,8 @@
 import { getProductDetails } from "@/lib/data/product-details";
 import { getProductReviews } from "@/lib/data/product-reviews";
-import AdditionalInformation from "@/ui/pdp/additional-information";
 import ProductInfo from "@/ui/pdp/product-info";
-import ProductReviews from "@/ui/pdp/reviews";
-import NutritionalTable from "@/ui/pdp/table";
-import * as Tabs from "@radix-ui/react-tabs";
+import ProductTabs from "@/ui/pdp/tabs";
+
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -80,53 +78,7 @@ export default async function Page({ params, searchParams }: PageProps) {
                 rating={reviews.average_rating}
                 className="mt-16 w-full lg:hidden"
               />
-              <Tabs.Root className="mt-12 w-full" defaultValue="reviews">
-                <div className="overflow-x-auto pb-8 sm:pb-0">
-                  <Tabs.List
-                    aria-label="Tabs"
-                    className="flex w-full gap-x-6 border-b border-b-gray-200 lg:gap-x-9"
-                  >
-                    <Tabs.Trigger
-                      value="reviews"
-                      className="shrink-0 pb-6 text-sm text-gray-700 data-[state=active]:border-b data-[state=active]:border-b-pink-600 data-[state=active]:font-semibold data-[state=active]:text-pink-600"
-                    >
-                      Recenzije ({`${reviews.meta.total}`})
-                    </Tabs.Trigger>
-                    <Tabs.Trigger
-                      value="nutritional_data"
-                      className="shrink-0 pb-6 text-sm text-gray-700 data-[state=active]:border-b data-[state=active]:border-b-pink-600 data-[state=active]:font-semibold data-[state=active]:text-pink-600"
-                    >
-                      Hranljive vrednosti
-                    </Tabs.Trigger>
-                    <Tabs.Trigger
-                      value="additional_info"
-                      className="shrink-0 pb-6 text-sm text-gray-700 data-[state=active]:border-b data-[state=active]:border-b-pink-600 data-[state=active]:font-semibold data-[state=active]:text-pink-600"
-                    >
-                      Dodatne informacije
-                    </Tabs.Trigger>
-                  </Tabs.List>
-                </div>
-
-                <Tabs.Content value="reviews">
-                  <ProductReviews reviews={reviews} />
-                </Tabs.Content>
-
-                <Tabs.Content value="nutritional_data">
-                  <NutritionalTable
-                    {...product.product_information.nutritional_values}
-                  />
-                </Tabs.Content>
-
-                <Tabs.Content value="additional_info">
-                  <AdditionalInformation
-                    allergens={product.product_information.allergens}
-                    country_of_origin={
-                      product.product_information.country_of_origin
-                    }
-                    ingredients={product.product_information.ingredients}
-                  />
-                </Tabs.Content>
-              </Tabs.Root>
+              <ProductTabs product={product} reviews={reviews} />
             </div>
             <ProductInfo
               product={product}
