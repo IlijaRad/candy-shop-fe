@@ -38,7 +38,7 @@ const ProductInfo = ({
           {product.price} RSD
         </div>
         {discountPercentage ? (
-          <div className="rounded-sm bg-yellow-400/30 px-1.5 text-xs/6 font-medium text-yellow-800">
+          <div className="rounded-sm bg-yellow-400/30 px-2 py-0.5 text-sm/6 font-medium text-yellow-800">
             -{discountPercentage}%
           </div>
         ) : null}
