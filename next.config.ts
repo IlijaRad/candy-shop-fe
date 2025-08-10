@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
+import { RemotePattern } from "next/dist/shared/lib/image-config";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
@@ -9,11 +9,15 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "candy-shop-srb.laravel.cloud",
-        pathname: "/**",
-      },
+      ...(process.env.BUCKET_URL
+        ? [
+            {
+              protocol: "https",
+              hostname: process.env.BUCKET_URL,
+              pathname: "/**",
+            } as RemotePattern,
+          ]
+        : []),
     ],
   },
 };
